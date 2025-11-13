@@ -1,1 +1,1 @@
-./build/ArgonCubeOptPh -g resources/gdml/optSim.gdml -p resources/macros/preinit.mac -m resources/macros/test.mac -o "test.root" -G
+./ArgonCubeOptPh -g ../resources/gdml/FSD.gdml -p ../resources/macros/preinit.mac -m ../resources/macros/testGUI_livio.mac -o "test.root" -G -i

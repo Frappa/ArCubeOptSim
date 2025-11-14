@@ -1,0 +1,24 @@
+# EJ-204 (approx) emission spectrum - Gaussian approximation
+# Energy(eV)   RelativeIntensity (arbitrary units)
+# Generated: center lambda = 425 nm (E0 = 1240/425 eV = 2.9176 eV), FWHM = 50 nm (~0.34 eV)
+# Columns: energy(eV)  intensity
+
+
+// Coarse EJ-204 approximate emission spectrum (energy in eV, relative intensity)
+// Peak approximated at lambda = 425 nm -> E0 = 1240/425 = 2.9176 eV
+// Values are relative (not absolute), suitable as FASTCOMPONENT for Geant4 material MPT
+
+1.800 0.0000
+2.000 0.0050
+2.200 0.0200
+2.400 0.0800
+2.600 0.3500
+2.750 0.7000
+2.850 0.9000
+2.9176 1.0000
+3.000 0.9000
+3.100 0.6000
+3.300 0.2500
+3.600 0.0200
+3.900 0.0000
+

@@ -1,0 +1,18 @@
+### Preinit macro to enable scintillation
+
+# Enable scintillation generation
+/argoncube/physics/optical/scintillation true
+
+### Set the verbosity of the processes ###
+### Use only for the debug in interactive mode (large output) ###
+/argoncube/physics/optical/verbose 0
+
+### Set the thickness of the ArCLight TPB layer  ###
+/argoncube/detector/setTpbThick 0.001 mm #Set to 0 to not build the TPB layer
+
+### Set the level of how many details to save in ROOT tree ###
+/argoncube/analysis/SaveData 1
+
+### Set the logical volume(s) where to limit the max step lenght ###
+/argoncube/detector/setMaxTrackStep volSiPM_Sens 0.01 um
+/argoncube/detector/setMaxTrackStep volSiPM_LCM 0.01 um

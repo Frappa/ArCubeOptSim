@@ -1,0 +1,58 @@
+### Define debug levels ###
+/argoncube/analysis/stepsDebug 0
+
+### Define verbosity levels ###
+#/argoncube/detector/optical/verbosity 1
+/tracking/verbose 1
+
+### Load optical properties from JSON file ###
+/argoncube/detector/optical/loadOptSett ../resources/OptSim_all.json
+
+### Define volumes to kill photons ###
+/argoncube/analysis/DefAbsVols volSiPM_Sens_PV volSiPM_LCM_PV
+
+### Define volumes to detect photons ###
+/argoncube/analysis/DefOptSD volSiPM_Sens_PV volSiPM_LCM_PV
+
+/control/execute ../resources/macros/vis.mac
+
+### Define particle type and properties ###
+/argoncube/gun/particle mu-
+#/argoncube/gun/polarization 0 1 0
+#/argoncube/gun/position 0 -130 0 mm
+#/argoncube/gun/primaryNb 1
+/argoncube/gun/angtype Direction
+/argoncube/gun/energy 1 GeV
+/argoncube/gun/position 0 0 0 mm
+/argoncube/gun/direction 0 0 1
+### Start visual interface ###
+#/control/execute resources/macros/vis.mac
+
+### Hit a SiPM in ArCLight ###
+#/argoncube/gun/position 0 0 0
+#/argoncube/gun/direction -2 -1.15 0
+
+### Hit the TPB coating of ArCLight ###
+#/argoncube/gun/position 0 -15 25 cm
+#/argoncube/gun/direction 0 0.1 1
+
+### Hit the TPB coating of LCM ###
+#/argoncube/gun/position 0 15 25 cm
+#/argoncube/gun/direction 0 0.1 1
+
+### Define particle source ###
+#/argoncube/gun/sourceType Volume
+#/argoncube/gun/shape Box
+#/argoncube/gun/angtype Iso
+
+
+#/argoncube/gun/center 0 0 0 mm
+#/argoncube/gun/halfx 10 mm
+#/argoncube/gun/halfy 10 mm
+#/argoncube/gun/halfz 10 mm
+
+
+
+/argoncube/gun/primaryNb 1
+#/run/beamOn 1
+

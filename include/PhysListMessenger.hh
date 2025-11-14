@@ -7,6 +7,7 @@
 class PhysListOptPh;
 class G4UIdirectory;
 class G4UIcmdWithAnInteger;
+class G4UIcmdWithABool;
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -24,6 +25,7 @@ class PhysListOptPhMessenger: public G4UImessenger
     G4UIdirectory*        fPhysDir;
     G4UIdirectory*        fOptPhPhysDir;
     G4UIcmdWithAnInteger* fVerboseCmd;
+    G4UIcmdWithABool*     fScintCmd;
 };
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......

@@ -25,6 +25,9 @@ class PhysListOptPh: public G4VUserPhysicsList
 	PhysListOptPhMessenger* fMessenger;
 	
 	PhysVerbosity fVerboseLevel;
+
+	// Enable or disable scintillation generation (default: enabled)
+	G4bool fScintillationEnabled;
 	
 	//All the static declaration here are made for speed and low memory consumption in addition they are thread safe using the G4 internal functionalities
 	//Note: All this static members are not shared between different threads but shared between different instances of the class in the same thread
@@ -35,6 +38,7 @@ class PhysListOptPh: public G4VUserPhysicsList
 	static G4ThreadLocal G4OpWLS* fWLSProcess;
 	static G4ThreadLocal G4OpMieHG* fMieHGScatteringProcess;
 	static G4ThreadLocal G4OpBoundaryProcess* fBoundaryProcess;
+    static G4ThreadLocal G4Scintillation* fScintillation;
 	
 	G4double fDefaultCutValue;
 	
@@ -50,6 +54,7 @@ public:
 	
 	//for the Messenger
 	void SetVerbose(PhysVerbosity verb){ fVerboseLevel = verb; };
+	void SetScintillationEnabled(G4bool enabled){ fScintillationEnabled = enabled; };
 	
 
 private:

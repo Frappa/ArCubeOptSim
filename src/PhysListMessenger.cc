@@ -7,6 +7,7 @@
 
 #include "G4UIdirectory.hh"
 #include "G4UIcmdWithAnInteger.hh"
+#include "G4UIcmdWithABool.hh"
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
 
@@ -26,6 +27,13 @@ fPhysicsList(pPhys)
 	fVerboseCmd->SetDefaultValue(1);
 	fVerboseCmd->SetRange("verbose>=0");
 	fVerboseCmd->AvailableForStates(G4State_PreInit, G4State_Idle);
+
+	// command to enable/disable scintillation generation
+	fScintCmd = new G4UIcmdWithABool("/argoncube/physics/optical/scintillation", this);
+	fScintCmd->SetGuidance("Enable (true) or disable (false) scintillation generation");
+	fScintCmd->SetParameterName("scint", true);
+	fScintCmd->SetDefaultValue(true);
+	fScintCmd->AvailableForStates(G4State_PreInit, G4State_Idle);
 }
 
 //....oooOO0OOooo........oooOO0OOooo........oooOO0OOooo........oooOO0OOooo......
@@ -33,6 +41,7 @@ fPhysicsList(pPhys)
 PhysListOptPhMessenger::~PhysListOptPhMessenger()
 {
 	delete fVerboseCmd;
+    delete fScintCmd;
 	delete fOptPhPhysDir;
 	delete fPhysDir;
 }
@@ -43,6 +52,10 @@ void PhysListOptPhMessenger::SetNewValue(G4UIcommand* command, G4String newValue
 {
 	if( command == fVerboseCmd ){
 		fPhysicsList->SetVerbose(static_cast<PhysVerbosity>(fVerboseCmd->GetNewIntValue(newValue)));
+	}
+
+	if( command == fScintCmd ){
+		fPhysicsList->SetScintillationEnabled(fScintCmd->GetNewBoolValue(newValue));
 	}
 }
 

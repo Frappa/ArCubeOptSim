@@ -1,0 +1,102 @@
+{
+  "commands":[
+    {
+      "name": "setmatprop",
+      "obj": {
+        "matname": "EJ204",
+        "propfile": {
+          "RINDEX": "../resources/datafiles/RINDEX_PSA.dat",
+          "ABSLENGTH": "../resources/datafiles/ABSLENGTH_EJ204.dat",
+          "FASTCOMPONENT": "../resources/datafiles/EJ204_emission_spectrum.dat"
+        },
+        "constprop": {
+          "SCINTILLATIONYIELD": 10400.0,
+          "FASTTIMECONSTANT": 1.8,
+          "RISETIME": 0.7,
+          "RESOLUTIONSCALE": 1.0,
+          "YIELDRATIO": 1.0
+        }
+      }
+    },
+    {
+      "name": "setmatprop",
+      "obj": {
+        "matname": "Air",
+        "propfile": {
+          "ABSLENGTH": "../resources/datafiles/ABSLENGTH_Air.dat",
+          "RAYLEIGH": "../resources/datafiles/RAYLEIGH_Air.dat",
+          "RINDEX": "../resources/datafiles/RINDEX_Air.dat"
+        }
+      }
+    },
+    {
+      "name": "setmatprop",
+      "obj": {
+        "matname": "Silicon",
+        "propfile": {
+          "RINDEX": "../resources/datafiles/RINDEX_Silicon.dat",
+          "REALRINDEX": "../resources/datafiles/REALRINDEX_Silicon.dat",
+          "IMAGINARYRINDEX": "../resources/datafiles/IMAGINARYRINDEX_Silicon.dat"
+        }
+      }
+    },
+    {
+      "name": "buildoptsurf",
+      "obj": {
+        "surfname": "EJ2042ESR_optsurf",
+        "model": "unified",
+        "type": "dielectric_dielectric",
+        "finish": "polished",
+        "propfile": {
+          "REFLECTIVITY": "../resources/datafiles/REFLECTIVITY_EJ2802ESR.dat",
+          "TRANSMITTANCE": "../resources/datafiles/TRANSMITTANCE_EJ2802ESR.dat" 	
+          }
+      }
+    },  
+    {
+      "name": "buildoptsurf",
+      "obj": {
+        "surfname": "EJ2042Silicon_optsurf",
+        "model": "unified",
+        "type": "dielectric_dielectric",
+        "finish": "polished"
+      }
+    },
+    {
+      "name": "buildoptsurf",
+      "obj": {
+        "surfname": "EJ2042Air_optsurf",
+        "model": "unified",
+        "type": "dielectric_dielectric",
+        "finish": "polished"
+      }
+    },
+    {
+      "name": "buildlogbordersurf",
+      "obj": {
+        "surfname": "EJ2042Air_logsurf",
+        "vol1": "volSCINT_panel_PV",
+        "vol2": "volDetector_PV",
+        "optsurf": "EJ2042Air_optsurf"
+      }
+    },
+    {
+      "name": "buildlogbordersurf",
+      "obj": {
+        "surfname": "EJ2042ESR_logsurf",
+        "vol1": "volSCINT_panel_PV",
+        "vol2": "volMirror_PV",
+        "optsurf": "EJ2042ESR_optsurf"
+      }
+    },
+    {
+      "name": "buildlogbordersurf",
+      "obj": {
+        "surfname": "EJ2042Silicon_logsurf",
+        "vol1": "volSCINT_panel_PV",
+        "vol2": "volSiPM_Sens_PV",
+        "optsurf": "EJ2042Silicon_optsurf"
+      }
+    }
+  ]
+}

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="ASCII"?>
+<gdml xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://service-spi.web.cern.ch/service-spi/app/releases/GDML/schema/gdml.xsd">
+  <define>
+  <!-- Positions for WLS panel and mirrors -->
+  <position name="center" unit="cm" x="0" y="0" z="0"/>
+  <position name="SCINT_pos" unit="cm" x="0" y="0" z="0"/>
+  <position name="Mirror_top_pos" unit="cm" x="0" y="0" z="0.55"/>
+  <position name="Mirror_bot_pos" unit="cm" x="0" y="0" z="-0.55"/>
+
+    <!-- Right side: mirror of left positions (180deg about Z) -->
+  <position name="SiPM_Sens_pos_px_0" unit="cm" x="15.006" y="-12.5" z="0"/>
+  <position name="SiPM_Sens_pos_px_1" unit="cm" x="15.006" y="-7.5" z="0"/>
+  <position name="SiPM_Sens_pos_px_2" unit="cm" x="15.006" y="-2.5" z="0"/>
+  <position name="SiPM_Sens_pos_px_3" unit="cm" x="15.006" y="2.5" z="0"/>
+  <position name="SiPM_Sens_pos_px_4" unit="cm" x="15.006" y="7.5" z="0"/>
+  <position name="SiPM_Sens_pos_px_5" unit="cm" x="15.006" y="12.5" z="0"/>
+
+    <!-- Top side: rotate -90deg -> (y = +15.006) -->
+  <position name="SiPM_Sens_pos_py_0" unit="cm" x="-12.5" y="15.006" z="0"/>
+  <position name="SiPM_Sens_pos_py_1" unit="cm" x="-7.5" y="15.006" z="0"/>
+  <position name="SiPM_Sens_pos_py_2" unit="cm" x="-2.5" y="15.006" z="0"/>
+  <position name="SiPM_Sens_pos_py_3" unit="cm" x="2.5" y="15.006" z="0"/>
+  <position name="SiPM_Sens_pos_py_4" unit="cm" x="7.5" y="15.006" z="0"/>
+  <position name="SiPM_Sens_pos_py_5" unit="cm" x="12.5" y="15.006" z="0"/>
+
+  <!-- PCB positions copied from ArCLight reference (three per side) -->
+  <position name="SiPM_Sens_pos_nx_0" unit="cm" x="-15.006" y="12.5" z="0"/>
+  <position name="SiPM_Sens_pos_nx_1" unit="cm" x="-15.006" y="7.5" z="0"/>
+  <position name="SiPM_Sens_pos_nx_2" unit="cm" x="-15.006" y="2.5" z="0"/>
+  <position name="SiPM_Sens_pos_nx_3" unit="cm" x="-15.006" y="-2.5" z="0"/>
+  <position name="SiPM_Sens_pos_nx_4" unit="cm" x="-15.006" y="-7.5" z="0"/>
+  <position name="SiPM_Sens_pos_nx_5" unit="cm" x="-15.006" y="-12.5" z="0"/>
+
+  <!-- Bottom side: rotate +90deg -> (y = -15.006) -->
+  <position name="SiPM_Sens_pos_ny_0" unit="cm" x="-12.5" y="-15.006" z="0"/>
+  <position name="SiPM_Sens_pos_ny_1" unit="cm" x="-7.5" y="-15.006" z="0"/>
+  <position name="SiPM_Sens_pos_ny_2" unit="cm" x="-2.5" y="-15.006" z="0"/>
+  <position name="SiPM_Sens_pos_ny_3" unit="cm" x="2.5" y="-15.006" z="0"/>
+  <position name="SiPM_Sens_pos_ny_4" unit="cm" x="7.5" y="-15.006" z="0"/>
+  <position name="SiPM_Sens_pos_ny_5" unit="cm" x="12.5" y="-15.006" z="0"/>
+
+  <rotation name="noRotate" unit="degree" x="0" y="0" z="0"/>
+  <rotation name="r90aboutZ" unit="degree" x="0" y="0" z="90"/>
+  <rotation name="r180aboutZ" unit="degree" x="0" y="0" z="180"/>
+  <rotation name="rminus90aboutZ" unit="degree" x="0" y="0" z="-90"/>
+  <rotation name="r180aboutY" unit="degree" x="0" y="180" z="0"/>
+  </define>
+  <materials>
+    <element Z="1" formula="H" name="hydrogen"><atom value="1.00791"/></element>
+    <element Z="6" formula="C" name="carbon"><atom value="12.0107"/></element>
+    <element Z="14" formula="Si" name="silicon"><atom value="28.0855"/></element>
+    <element Z="18" formula="Ar" name="argon"><atom value="39.948"/></element>
+    <element Z="8" formula="O" name="oxygen"><atom value="15.999"/></element>
+    <element Z="5" formula="B" name="boron"><atom value="10.811"/></element>
+    <element Z="13" formula="Al" name="aluminum"><atom value="26.9815386"/></element>
+    <element Z="11" formula="Na" name="sodium"><atom value="22.98976928"/></element>
+    <element Z="19" formula="K" name="potassium"><atom value="39.0983"/></element>
+    <element Z="30" formula="Zn" name="zinc"><atom value="65.38"/></element>
+    <element Z="22" formula="Ti" name="titanium"><atom value="47.867"/></element>
+    <element Z="7" formula="N" name="nitrogen"><atom value="14.0671"/> </element>
+    <material formula="" name="EJ204">
+      <D value="1.023"/>
+      <composite n="9" ref="carbon"/>
+      <composite n="10" ref="hydrogen"/>
+    </material>
+
+    <material formula="" name="Air">
+      <D value="0.001225"/>
+      <fraction n="0.781154" ref="nitrogen"/>
+      <fraction n="0.209476" ref="oxygen"/>
+      <fraction n="0.00934" ref="argon"/>
+    </material>
+
+    <material formula="" name="PVT">
+      <D value="1.023"/>
+      <composite n="9" ref="carbon"/>
+      <composite n="10" ref="hydrogen"/>
+    </material>
+
+    <material formula="" name="LAr">
+      <D value="1.4"/>
+      <composite n="1" ref="argon"/>
+    </material>
+
+    <material formula="" name="Silicon">
+      <D value="2.33"/>
+      <composite n="1" ref="silicon"/>
+    </material>
+    <material name="Epoxy" formula="">
+      <D value="1.25"/>
+      <composite ref="carbon" n="6"/>
+      <composite ref="hydrogen" n="6"/>
+      <composite ref="oxygen" n="1"/>
+    </material>
+    <material name="Glass" formula="">
+      <D value="2.7"/>
+      <fraction ref="silicon" n="0.2743"/>
+      <fraction ref="boron" n="0.0166"/>
+      <fraction ref="aluminum" n="0.0207"/>
+      <fraction ref="sodium" n="0.0449"/>
+      <fraction ref="potassium" n="0.0821"/>
+      <fraction ref="zinc" n="0.0882"/>
+      <fraction ref="titanium" n="0.0292"/>
+      <fraction ref="oxygen" n="0.444"/>
+    </material>
+    <material name="FR4" formula="">
+      <D value="1.85"/>
+      <fraction ref="Epoxy" n="0.206"/>
+      <fraction ref="Glass" n="0.794"/>
+    </material>
+  </materials>
+
+  <solids>
+    <!-- WLS panel: 30 x 30 x 1 cm -->
+    <box lunit="cm" name="SCINT_panel_shape" x="30.0" y="30.0" z="1.0"/>
+    <!-- Mirrors slightly larger and thicker to sit above/below -->
+    <box lunit="cm" name="Mirror_shape_EJ204" x="30.0" y="30.0" z="0.1"/>
+    <!-- SiPM/PCB shapes (copied sizes from ArCLight reference) -->
+    <box lunit="cm" name="SiPM_Sens_shape" x="0.012" y="0.6" z="0.6"/>
+    <box lunit="cm" name="SiPM_Mask_shape" x="0.165" y="7.825" z="1.0"/>
+    <box lunit="cm" name="SiPM_PCB_shape" x="0.3" y="9.95" z="1.0"/>
+    <box lunit="cm" name="World" x="31.0" y="31.0" z="4.0"/>
+    <box lunit="cm" name="TPB_LAr_shape" x="30.0" y="30.0" z="0.01"/>
+  </solids>
+
+  <structure>
+    <!-- WLS layer volume made of LAr  not used..-->
+    <volume name="volTPB_LAr">
+      <materialref ref="LAr"/>
+      <solidref ref="TPB_LAr_shape"/>
+    </volume>
+
+    <!-- Sensitive sensor volume -->
+    <volume name="volSiPM_Sens">
+      <materialref ref="Silicon"/>
+      <solidref ref="SiPM_Sens_shape"/>
+    </volume>
+
+    <!-- WLS panel volume made of EJ204 -->
+    <volume name="volSCINT_panel">
+      <materialref ref="EJ204"/>
+      <solidref ref="SCINT_panel_shape"/>
+    </volume>
+
+    <volume name="volMirror">
+      <materialref ref="Air"/>
+      <solidref ref="Mirror_shape_EJ204"/>
+    </volume>
+
+    <!-- Top mirror volume -->
+    <volume name="volDetector">
+      <materialref ref="Air"/>
+      <solidref ref="World"/>
+
+      <physvol copynumber="0">
+        <volumeref ref="volMirror"/>
+        <positionref ref="Mirror_top_pos"/>
+        <rotationref ref="noRotate"/>
+      </physvol>
+      <physvol copynumber="1">
+        <volumeref ref="volMirror"/>
+        <positionref ref="Mirror_bot_pos"/>
+        <rotationref ref="noRotate"/>
+      </physvol>
+      <physvol>
+        <volumeref ref="volSCINT_panel"/>
+        <positionref ref="SCINT_pos"/>
+        <rotationref ref="noRotate"/>
+      </physvol>
+      <physvol copynumber="0">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_px_0"/>
+        <rotationref ref="noRotate"/>
+      </physvol>
+      <physvol copynumber="1">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_px_1"/>
+        <rotationref ref="noRotate"/>
+      </physvol>
+      <physvol copynumber="2">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_px_2"/>
+        <rotationref ref="noRotate"/>
+      </physvol>
+      <physvol copynumber="3">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_px_3"/>
+        <rotationref ref="noRotate"/>
+      </physvol>
+      <physvol copynumber="4">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_px_4"/>
+        <rotationref ref="noRotate"/>
+      </physvol>
+      <physvol copynumber="5">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_px_5"/>
+        <rotationref ref="noRotate"/>
+      </physvol>
+      <physvol copynumber="6">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_py_0"/>
+        <rotationref ref="r90aboutZ"/>
+      </physvol>
+      <physvol copynumber="7">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_py_1"/>
+        <rotationref ref="r90aboutZ"/>
+      </physvol>
+      <physvol copynumber="8">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_py_2"/>
+        <rotationref ref="r90aboutZ"/>
+      </physvol>
+      <physvol copynumber="9">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_py_3"/>
+        <rotationref ref="r90aboutZ"/>
+      </physvol>
+      <physvol copynumber="10">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_py_4"/>
+        <rotationref ref="r90aboutZ"/>
+      </physvol>
+      <physvol copynumber="11">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_py_5"/>
+        <rotationref ref="r90aboutZ"/>
+      </physvol>
+      <physvol copynumber="12">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_nx_0"/>
+        <rotationref ref="r180aboutZ"/>
+      </physvol>
+      <physvol copynumber="13">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_nx_1"/>
+        <rotationref ref="r180aboutZ"/>
+      </physvol>
+      <physvol copynumber="14">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_nx_2"/>
+        <rotationref ref="r180aboutZ"/>
+      </physvol>
+      <physvol copynumber="15">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_nx_3"/>
+        <rotationref ref="r180aboutZ"/>
+      </physvol>
+      <physvol copynumber="16">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_nx_4"/>
+        <rotationref ref="r180aboutZ"/>
+      </physvol>
+      <physvol copynumber="17">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_nx_5"/>
+        <rotationref ref="r180aboutZ"/>
+      </physvol>
+      <physvol copynumber="18">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_ny_0"/>
+        <rotationref ref="rminus90aboutZ"/>
+      </physvol>
+      <physvol copynumber="19">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_ny_1"/>
+        <rotationref ref="rminus90aboutZ"/>
+      </physvol>
+      <physvol copynumber="20">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_ny_2"/>
+        <rotationref ref="rminus90aboutZ"/>
+      </physvol>
+      <physvol copynumber="21">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_ny_3"/>
+        <rotationref ref="rminus90aboutZ"/>
+      </physvol>
+      <physvol copynumber="22">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_ny_4"/>
+        <rotationref ref="rminus90aboutZ"/>
+      </physvol>
+      <physvol copynumber="23">
+        <volumeref ref="volSiPM_Sens"/>
+        <positionref ref="SiPM_Sens_pos_ny_5"/>
+        <rotationref ref="rminus90aboutZ"/>
+      </physvol>
+    </volume>
+
+    <volume name="volWorld">
+      <materialref ref="Air"/>
+      <solidref ref="World"/>
+      <physvol>
+        <volumeref ref="volDetector"/>
+        <positionref ref="center"/>
+        <rotationref ref="noRotate"/>
+      </physvol>
+    </volume>
+  </structure>
+
+  <setup name="Default" version="0">
+    <world ref="volWorld"/>
+  </setup>
+</gdml>

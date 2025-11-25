@@ -15,4 +15,3 @@
 
 ### Set the logical volume(s) where to limit the max step lenght ###
 /argoncube/detector/setMaxTrackStep volSiPM_Sens 0.01 um
-/argoncube/detector/setMaxTrackStep volSiPM_LCM 0.01 um

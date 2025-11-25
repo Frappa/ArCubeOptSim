@@ -114,7 +114,7 @@ G4VPhysicalVolume* DetConstrOptPh::Construct()
 #endif
 	
 	if(fWorld){
-		if( G4PhysicalVolumeStore::GetInstance()->GetVolume("volTPB_LAr_PV") && (fTpbThick>0.) ){
+		if( G4PhysicalVolumeStore::GetInstance()->GetVolume("volTPB_LAr_PV", false) && (fTpbThick>0.) ){
 			BuildTPBlayer();
 		}
 		

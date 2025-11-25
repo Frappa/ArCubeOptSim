@@ -68,7 +68,11 @@
         "surfname": "EJ2042Air_optsurf",
         "model": "unified",
         "type": "dielectric_dielectric",
-        "finish": "polished"
+        "finish": "polished",
+        "propfile": {
+          "REFLECTIVITY": "../resources/datafiles/REFLECTIVITY_EJ2802Air.dat",
+          "TRANSMITTANCE": "../resources/datafiles/TRANSMITTANCE_EJ2802Air.dat" 	
+          }
       }
     },
     {
